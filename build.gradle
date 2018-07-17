@@ -1,0 +1,46 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.3.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.joy'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-security')
+	compile("org.springframework.boot:spring-boot-starter-mail")
+	compile("org.springframework.boot:spring-boot-devtools")
+
+	compile 'org.projectlombok:lombok:1.16.18'
+
+	compile('pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.0')
+	compile('org.webjars:jquery:3.3.1-1',
+			'org.webjars:jquery-ui:1.12.1',
+			'org.webjars:bootstrap:4.1.1',
+			'org.webjars.bower:font-awesome:4.7.0')
+
+	compile('com.h2database:h2')
+
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}

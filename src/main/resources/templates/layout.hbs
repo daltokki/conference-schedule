@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  {{#block "page-title"}}
+    <title>책검색 웹 서비스</title>
+  {{/block}}
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!--style CSS import-->
+  <link rel="stylesheet" type="text/css" href="/webjars/jquery-ui/1.12.1/jquery-ui.min.css">
+  <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/webjars/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/custom.css">
+  {{#block "page-style"}}{{/block}}
+</head>
+
+<body>
+<nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+  <div class="collapse navbar-collapse" id="navbars-base">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/home"><i class="fa fa-home"></i> Home <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <input type="hidden" id="isGuest" value="{{needLogin}}">
+      {{#unless needLogin}}
+        <input type="hidden" id="username" value="{{username}}">
+        <li class="nav-item">
+          <a class="nav-link" href="/bookmark"><i class="fa fa-bookmark-o"></i> Bookmark</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/history"><i class="fa fa-history"></i> Search History</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown-my-page" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-user"></i> My Page</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown-my-page">
+            <a class="dropdown-item" href="/member/profile">Profile</a>
+            <a class="dropdown-item" href="/logout">Logout</a>
+          </div>
+        </li>
+      {{else}}
+        <li class="nav-item">
+          <a class="nav-link" href="/login"><i class="fa fa-user"></i> Login</a>
+        </li>
+      {{/unless}}
+    </ul>
+  </div>
+</nav>
+<main role="main">
+  <div class="jumbotron header-bg">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="site-heading">
+        <h1 class="display-5">Book Search</h1>
+        <span class="subheading">This page is a web service for book search, bookmark, and view history.</span>
+      </div>
+    </div>
+  </div>
+  {{#block "page-body"}}{{/block}}
+</main>
+<footer class="container">
+  <div class="text-center">
+    <p>Copyright © Daltokki Website 2018</p>
+  </div>
+</footer>
+
+<!--script JS import-->
+<script src="/webjars/jquery/3.3.1-1/jquery.min.js"></script>
+<script src="/webjars/jquery-ui/1.12.1/jquery-ui.min.js"></script>
+<script src="/webjars/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="/js/util/handlebars-v4.0.4.js"></script>
+<script src="/js/util/common.js"></script>
+<script type="text/javascript">
+  $(function () {
+    util.initDatePicker();
+    util.preventEnterEvent();
+    util.numFormatter();
+  });
+</script>
+{{#block "page-script"}}{{/block}}
+</body>
+</html>
+</html>
