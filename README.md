@@ -1,5 +1,5 @@
 ### 1. Web Service 시작 
-BookSearchApplication.java 실행
+ConferenceScheduleApplication.java 실행
 
 ### 2. Mail Service
 application.properties 파일 수정 : 사용자 username, password 작성 후 실행
