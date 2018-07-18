@@ -13,5 +13,6 @@ public class ConferenceScheduleApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) {
+		InitialConferenceScheduleMaker.initConferenceSchedule();
 	}
 }

@@ -18,27 +18,22 @@ import java.util.List;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class InitialConferenceScheduleMakerTest {
+	private ConferenceSchedule conferenceSchedule;
+
+	@Before
+	public void init() {
+		conferenceSchedule = Mockito.any(ConferenceSchedule.class);
+	}
+
 	@Test
 	public void generateConferenceRoom() {
-		ConferenceSchedule conferenceSchedule = Mockito.any(ConferenceSchedule.class);
 		List<ConferenceRoom> conferenceRooms = InitialConferenceScheduleMaker.generateConferenceRoom(conferenceSchedule);
 		Assert.assertEquals(conferenceRooms.size(), DefaultConferenceRoom.values().length);
 	}
 
 	@Test
 	public void generateScheduleTime() {
-		ConferenceSchedule conferenceSchedule = Mockito.any(ConferenceSchedule.class);
 		List<ScheduleTime> scheduleTimes = InitialConferenceScheduleMaker.generateScheduleTime(conferenceSchedule);
 		Assert.assertEquals(Iterables.getLast(scheduleTimes).getScheduleTime(), "1730");
-	}
-
-	@Test
-	public void generateConference() {
-		ConferenceSchedule conferenceSchedule = Mockito.any(ConferenceSchedule.class);
-
-		List<ConferenceRoom> conferenceRooms = InitialConferenceScheduleMaker.generateConferenceRoom(conferenceSchedule);
-		List<ScheduleTime> scheduleTimes = InitialConferenceScheduleMaker.generateScheduleTime(conferenceSchedule);
-
-		InitialConferenceScheduleMaker.generateConference(conferenceRooms, scheduleTimes);
 	}
 }

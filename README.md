@@ -19,3 +19,6 @@ compile('org.webjars:jquery:3.3.1-1',
         'org.webjars.bower:font-awesome:4.7.0')
 </code></pre>
 
+### 4. 설계
+일별로 회의실과 예약시간, 빈 회의 일정을 일정 주기로 스케줄러를 통해 미리 생성해 두는 것으로 가정.
+빈 회의 일정에 하나의 먼저 선점한 사용자가 회의 예약을 진행
