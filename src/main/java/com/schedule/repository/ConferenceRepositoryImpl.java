@@ -2,7 +2,6 @@ package com.schedule.repository;
 
 import com.schedule.repository.entity.Conference;
 import com.schedule.repository.exception.TransactionManagerException;
-import com.schedule.repository.value.ConferenceStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,9 +20,7 @@ public class ConferenceRepositoryImpl implements ConferenceRepositoryCustom {
 			transaction.begin();
 
 			Conference conference = em.find(Conference.class, conferenceId, LockModeType.PESSIMISTIC_WRITE);
-			conference.setConferenceTitle(conferenceTitle);
-			conference.setStatus(ConferenceStatus.BOOKED);
-			conference.setMemberId(memberId);
+			conference.makeBooking(conferenceTitle, memberId);
 
 			transaction.commit();
 		} catch (Exception e) {

@@ -57,4 +57,10 @@ public class Conference {
 	public static Conference create(ConferenceRoom conferenceRoom, ScheduleTime scheduleTime) {
 		return new Conference(conferenceRoom, scheduleTime);
 	}
+
+	public void makeBooking(String conferenceTitle, Long memberId) {
+		this.conferenceTitle = conferenceTitle;
+		this.status = ConferenceStatus.BOOKED;
+		this.memberId = memberId;
+	}
 }
