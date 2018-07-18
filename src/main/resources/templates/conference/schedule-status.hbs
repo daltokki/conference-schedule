@@ -8,6 +8,15 @@
       <div class="col-md-12">
         <h3 class="text-center"><i class="fa fa-calendar-check-o"></i> 예약 현황</h3>
         <hr>
+        <div class="form-group row">
+          <label class="col-sm-1 text-right col-form-label">예약일자</label>
+          <div class="col-sm-3 input-group">
+            <input class="form-control" id="scheduleDateInput" name="scheduleDateInput" data-date-picker="on" type="text" placeholder="예약 일자">
+            <div class="input-group-append">
+              <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+            </div>
+          </div>
+        </div>
         <div id="calendar">
           <input type="hidden" id="scheduleDate" value="{{scheduleDate}}">
         </div>
