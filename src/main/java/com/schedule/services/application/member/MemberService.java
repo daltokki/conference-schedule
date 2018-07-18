@@ -3,8 +3,10 @@ package com.schedule.services.application.member;
 import com.schedule.interfaces.member.model.MemberRequestForm;
 import com.schedule.repository.MemberRepository;
 import com.schedule.repository.entity.Member;
-import com.schedule.repository.value.RoleType;
-import com.schedule.services.application.member.exception.*;
+import com.schedule.services.application.member.exception.AlreadyExistsMemberException;
+import com.schedule.services.application.member.exception.PolicyViolationPasswordException;
+import com.schedule.services.application.member.exception.UnMatchedEmailException;
+import com.schedule.services.application.member.exception.UnMatchedPasswordException;
 import com.schedule.services.domain.security.SecurityMember;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,8 +44,7 @@ public class MemberService {
 		memberCreateValidation(memberRequestForm);
 
 		Member member = Member.create(memberRequestForm.getEmail(), passwordEncoder.encode(memberRequestForm.getPassword()),
-			new StringJoiner(",").add(memberRequestForm.getFirstName()).add(memberRequestForm.getLastName()).toString(),
-			RoleType.ROLE_ACTIVE_MEMBER);
+			new StringJoiner(",").add(memberRequestForm.getFirstName()).add(memberRequestForm.getLastName()).toString());
 
 		memberRepository.save(member);
 	}

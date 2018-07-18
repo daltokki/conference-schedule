@@ -1,5 +1,6 @@
 package com.schedule;
 
+import com.schedule.services.domain.schedule.InitialConferenceScheduleMaker;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

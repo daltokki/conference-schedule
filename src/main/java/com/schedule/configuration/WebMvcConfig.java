@@ -14,6 +14,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 		registry.addViewController("/login").setViewName("login");
 		registry.addViewController("/login/register").setViewName("/login/register");
 		registry.addViewController("/login/forgot-password").setViewName("/login/forgot-password");
+		registry.addViewController("/schedule/list").setViewName("/conference/schedule-status");
 	}
 
 	@Override

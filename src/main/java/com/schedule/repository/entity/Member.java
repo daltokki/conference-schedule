@@ -39,15 +39,15 @@ public class Member {
 
 	public Member() {}
 
-	public Member(String email, String password, String name, RoleType role) {
+	public Member(String email, String password, String name) {
 		this.email = email;
 		this.password = password;
 		this.name = name;
-		this.role = role;
+		this.role = RoleType.ROLE_ACTIVE_MEMBER;
 	}
 
-	public static Member create(String email, String password, String name, RoleType role) {
-		return new Member(email, password, name, role);
+	public static Member create(String email, String password, String name) {
+		return new Member(email, password, name);
 	}
 
 	public void updatePassword(String password) {

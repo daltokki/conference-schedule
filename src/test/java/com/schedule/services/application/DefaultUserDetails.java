@@ -1,7 +1,7 @@
-package com.book.services.application;
+package com.schedule.services.application;
 
-import com.book.repository.value.RoleType;
 import com.google.common.collect.Lists;
+import com.schedule.repository.value.RoleType;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

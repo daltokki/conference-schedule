@@ -1,0 +1,25 @@
+{{#partial "page-style"}}
+  <link rel="stylesheet" type="text/css" href="/css/fullcalendar.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/scheduler.min.css">
+{{/partial}}
+{{#partial "page-body"}}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="text-center"><i class="fa fa-calendar-check-o"></i> 예약 현황</h3>
+        <hr>
+        <div id="calendar">
+          <input type="hidden" id="scheduleDate" value="{{scheduleDate}}">
+        </div>
+      </div>
+    </div>
+    <hr class="row">
+  </div>
+{{/partial}}
+{{#partial "page-script"}}
+  <script src="/js/util/moment.min.js"></script>
+  <script src="/js/util/fullcalendar.min.js"></script>
+  <script src="/js/util/scheduler.min.js"></script>
+  <script src="/js/schedule/status.js"></script>
+{{/partial}}
+{{> layout}}

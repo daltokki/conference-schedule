@@ -2,7 +2,7 @@
 <html>
 <head>
   {{#block "page-title"}}
-    <title>책검색 웹 서비스</title>
+    <title>회의실 예약</title>
   {{/block}}
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -28,14 +28,14 @@
       {{#unless needLogin}}
         <input type="hidden" id="username" value="{{username}}">
         <li class="nav-item">
-          <a class="nav-link" href="/bookmark"><i class="fa fa-bookmark-o"></i> Bookmark</a>
+          <a class="nav-link" href="/home"><i class="fa fa-calendar-plus-o"></i> 회의실 예약</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/history"><i class="fa fa-history"></i> Search History</a>
+          <a class="nav-link" href="/schedule/list"><i class="fa fa-calendar-check-o"></i> 회의실 예약 현황</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="dropdown-my-page" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fa fa-user"></i> My Page</a>
+            <i class="fa fa-user"></i> My page</a>
           <div class="dropdown-menu" aria-labelledby="dropdown-my-page">
             <a class="dropdown-item" href="/member/profile">Profile</a>
             <a class="dropdown-item" href="/logout">Logout</a>
@@ -53,8 +53,8 @@
   <div class="jumbotron header-bg">
     <div class="col-lg-8 col-md-10 mx-auto">
       <div class="site-heading">
-        <h1 class="display-5">Book Search</h1>
-        <span class="subheading">This page is a web service for book search, bookmark, and view history.</span>
+        <h1 class="display-5">Conference Reservation</h1>
+        <span class="subheading">This page is for reserving a meeting room.</span>
       </div>
     </div>
   </div>
