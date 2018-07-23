@@ -55,7 +55,11 @@ public class ConferenceScheduleService {
 
 			ConferenceSchedule save = conferenceScheduleRepository.save(schedule);
 
-			InitialConferenceScheduleMaker.generateConference(schedule.getConferenceRoomList(), schedule.getScheduleTimeList());
+			for (ConferenceRoom conferenceRoom : schedule.getConferenceRoomList()) {
+				for (ScheduleTime scheduleTime : schedule.getScheduleTimeList()) {
+					conferenceService.createConference(conferenceRoom, scheduleTime);
+				}
+			}
 			return save;
 		}
 	}

@@ -1,9 +1,10 @@
 package com.schedule.services.domain.schedule;
 
 import com.google.common.collect.Lists;
-import com.schedule.repository.entity.*;
+import com.schedule.repository.entity.ConferenceRoom;
+import com.schedule.repository.entity.ConferenceSchedule;
+import com.schedule.repository.entity.ScheduleTime;
 import com.schedule.services.application.conference.ConferenceScheduleService;
-import com.schedule.services.application.conference.ConferenceService;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -16,13 +17,9 @@ import java.util.stream.Collectors;
 @Component
 public class InitialConferenceScheduleMaker {
 	private static ConferenceScheduleService conferenceScheduleService;
-	private static ConferenceService conferenceService;
 
 	public static void setConferenceScheduleService(ConferenceScheduleService conferenceScheduleService) {
 		InitialConferenceScheduleMaker.conferenceScheduleService = conferenceScheduleService;
-	}
-	public static void setConferenceService(ConferenceService conferenceService) {
-		InitialConferenceScheduleMaker.conferenceService = conferenceService;
 	}
 
 	public static void initConferenceSchedule() {
@@ -50,13 +47,5 @@ public class InitialConferenceScheduleMaker {
 
 		return localTimeList.stream().map(localTime ->
 			ScheduleTime.create(schedule, localTime.format(DateTimeFormatter.ofPattern("HHmm")))).collect(Collectors.toList());
-	}
-
-	public static void generateConference(List<ConferenceRoom> conferenceRoomList, List<ScheduleTime> scheduleTimeList) {
-		for (ConferenceRoom conferenceRoom : conferenceRoomList) {
-			for (ScheduleTime scheduleTime : scheduleTimeList) {
-				conferenceService.createConference(conferenceRoom, scheduleTime);
-			}
-		}
 	}
 }

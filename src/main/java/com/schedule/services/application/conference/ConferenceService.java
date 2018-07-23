@@ -5,14 +5,12 @@ import com.schedule.repository.entity.Conference;
 import com.schedule.repository.entity.ConferenceRoom;
 import com.schedule.repository.entity.ScheduleTime;
 import com.schedule.services.application.conference.exception.ConferenceScheduleException;
-import com.schedule.services.domain.schedule.InitialConferenceScheduleMaker;
 import com.schedule.services.domain.schedule.RepeatConferenceScheduler;
 import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.PostConstruct;
 import java.util.Iterator;
 import java.util.List;
 
@@ -23,11 +21,6 @@ public class ConferenceService {
 	private ConferenceRepository conferenceRepository;
 	@Autowired
 	private RepeatConferenceScheduler repeatConferenceScheduler;
-
-	@PostConstruct
-	public void setUpInit() {
-		InitialConferenceScheduleMaker.setConferenceService(this);
-	}
 
 	@Transactional
 	public void createConference(ConferenceRoom conferenceRoom, ScheduleTime scheduleTime) {
