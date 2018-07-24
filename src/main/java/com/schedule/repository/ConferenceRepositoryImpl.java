@@ -17,7 +17,7 @@ public class ConferenceRepositoryImpl implements ConferenceRepositoryCustom {
 		try {
 			transaction.begin();
 
-			Conference conference = em.find(Conference.class, conferenceId, LockModeType.PESSIMISTIC_WRITE);
+			Conference conference = em.find(Conference.class, conferenceId, LockModeType.PESSIMISTIC_READ);
 			conference.makeBooking(conferenceTitle, memberId);
 
 			transaction.commit();
